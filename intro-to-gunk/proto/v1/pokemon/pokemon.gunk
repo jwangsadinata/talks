@@ -1,0 +1,23 @@
+package pokemon
+
+type PokemonService interface {
+	Get(GetReq) Pokemon
+}
+
+type GetReq struct {
+	ID int `pb:"1" json:"id"`
+}
+
+type Rarity int
+
+const (
+	NORMAL Rarity = iota
+	LEGENDARY
+	MYTHIC
+)
+
+type Pokemon struct {
+	Name   string `pb:"1" json:"name"`
+	ID     int    `pb:"2" json:"id"`
+	Rarity Rarity `pb:"3" json:"rarity"`
+}
